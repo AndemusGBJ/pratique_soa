@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="txtNombre">
+    <input type="button" value="Valider" id="btnValider" onclick="calculerDouble()">
+
+
+    <p id="resultat"></p>
+
+    <script>
+        const txtNombre = document.getElementById("txtNombre")
+        const btnValider=document.getElementById("btnValider")
+        const resultat=document.getElementById("resultat")
+
+        function calculerDouble(){
+            fetch('http://localhost:5000/'+txtNombre.value)
+            .then((reponse)=>{return reponse.json()})
+            .then((data)=>{resultat.innerHTML=data})
+        }
+    </script>
+</body>
+</html>
